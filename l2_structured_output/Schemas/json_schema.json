@@ -1,0 +1,76 @@
+{
+  "title": "Student",
+  "description": "Detailed schema about students including academics and contact info",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique student identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Full name of the student"
+    },
+    "age": {
+      "type": "integer",
+      "minimum": 15,
+      "maximum": 100,
+      "description": "Age of the student"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Valid email address"
+    },
+    "cgpa": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Academic performance score"
+    },
+    "is_active": {
+      "type": "boolean",
+      "description": "Whether the student is currently enrolled"
+    },
+    "skills": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of student skills"
+    },
+    "address": {
+      "type": "object",
+      "description": "Student address details",
+      "properties": {
+        "street": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "pincode": { "type": "string" }
+      },
+      "required": ["city", "pincode"]
+    },
+    "courses": {
+      "type": "array",
+      "description": "Courses enrolled by student",
+      "items": {
+        "type": "object",
+        "properties": {
+          "course_name": { "type": "string" },
+          "credits": { "type": "integer" },
+          "grade": {
+            "type": "string",
+            "enum": ["A", "B", "C", "D", "F"]
+          }
+        },
+        "required": ["course_name", "grade"]
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Flexible extra data"
+    }
+  },
+  "required": ["id", "name", "email", "cgpa"]
+}
