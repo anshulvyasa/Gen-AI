@@ -1,3 +1,10 @@
+# Strategy:
+
+# Try splitting by paragraphs
+# If too big → split by lines
+# Still big → split by words
+# Last → characters
+
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import TextLoader
 
