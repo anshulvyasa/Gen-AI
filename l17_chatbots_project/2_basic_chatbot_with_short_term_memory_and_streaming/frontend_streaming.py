@@ -38,7 +38,8 @@ if prompt:
               yield content[0]["text"]
 
     with st.chat_message("assistant"):
-        ai_message = st.write_stream(generate_response())
+       with st.spinner("Thinking..."):
+          ai_message = st.write_stream(generate_response())
 
     st.session_state["message-history"].append(
         {"role": "assistant", "content": ai_message}

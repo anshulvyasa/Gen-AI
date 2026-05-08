@@ -20,7 +20,7 @@ def chat_node(state:ChatState)->ChatState:
     message=state["messages"]
     response=llm.invoke(message)
     
-    return {"messages":response}
+    return {"messages":[response]}
 
 
 # Define The Graph
